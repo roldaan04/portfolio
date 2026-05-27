@@ -1,16 +1,29 @@
-# React + Vite
+# Portfolio Web - Javier Roldán Gallego
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es el portfolio web personal de **Javier Roldán Gallego**, desarrollado para mostrar de forma clara y profesional mi perfil como **Full Stack Developer**.
 
-Currently, two official plugins are available:
+En este portfolio se recoge información sobre mi experiencia, formación, habilidades técnicas y proyectos completos, incluyendo trabajos relacionados con desarrollo frontend, backend, bases de datos, APIs, aplicaciones web, automatización de procesos y proyectos de Big Data e inteligencia artificial.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+El objetivo de esta web es servir como carta de presentación profesional, permitiendo acceder de forma organizada a toda mi información como desarrollador, así como a mis principales proyectos, experiencia laboral y enlaces relevantes.
 
-## React Compiler
+## Contenido del portfolio
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Información personal y profesional
+- Perfil como Full Stack Developer
+- Experiencia profesional
+- Formación académica
+- Tecnologías utilizadas
+- Proyectos completos
+- Enlaces a GitHub, LinkedIn y CV
 
-## Expanding the ESLint configuration
+## Tecnologías utilizadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Este portfolio está desarrollado con:
+
+- React
+
+
+## Autor
+
+**Javier Roldán Gallego**  
+Full Stack Developer

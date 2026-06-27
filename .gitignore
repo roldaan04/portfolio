@@ -5,3 +5,6 @@ build
 .env.local
 .DS_Store
 .vscode
+
+CLAUDE.md
+.claude

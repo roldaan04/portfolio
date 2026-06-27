@@ -15,11 +15,11 @@ function ProjectsPage() {
               ¿Encaja mi perfil con lo que buscáis?
             </h2>
             <p className="mt-2 text-sm text-slate-400">
-              Estoy en búsqueda activa como Full Stack Developer Junior. Hablemos.
+              Estoy abierto a nuevas oportunidades como Full Stack Developer y preparado para aportar en proyectos reales.
             </p>
           </div>
 
-          <a href={`mailto:${links.email}`} className="btn btn-primary shrink-0">
+          <a href={links.gmail} target="_blank" rel="noreferrer" className="btn btn-primary shrink-0">
             <Mail className="h-4 w-4" />
             Contactar
           </a>

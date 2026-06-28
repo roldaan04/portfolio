@@ -146,9 +146,9 @@ export const experience = {
 
 export const projects = [
   {
-    id: "filmme",
+    id: "filme",
     category: "TFG · Aplicación web de cine",
-    title: "FilmMe",
+    title: "Filme",
     summary:
       "Red social de cine donde los usuarios gestionan favoritos, críticas, recomendaciones y amigos, con información de películas vía API externa.",
     problem:
@@ -160,8 +160,8 @@ export const projects = [
     tech: ["React", "Spring Boot", "Java", "MySQL", "JWT", "API externa"],
     accent: "brand",
     links: {
-      details: "#",
-      repo: "https://github.com/Laiton10/TFG",
+      details: "/filme",
+      repo: "https://github.com/Laiton10/TFG/tree/master",
       //demo: "#",
     },
   },
@@ -190,7 +190,7 @@ export const projects = [
     ],
     accent: "brand-2",
     links: {
-      details: "#",
+      details: "/aws-project",
       repo: null,
       //demo: "#",
     },

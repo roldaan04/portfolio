@@ -6,6 +6,8 @@ import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
 import ExperiencePage from './pages/ExperiencePage'
 import ProjectsPage from './pages/ProjectsPage'
+import AwsProjectPage from './pages/AwsProjectPage'
+import FilmeProjectPage from './pages/FilmeProjectPage'
 
 /* Al navegar entre rutas, vuelve arriba (salvo si hay un #ancla). */
 function ScrollToTop() {
@@ -28,6 +30,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/experiencia" element={<ExperiencePage />} />
         <Route path="/proyectos" element={<ProjectsPage />} />
+        <Route path="/aws-project" element={<AwsProjectPage />} />
+        <Route path="/filme" element={<FilmeProjectPage />} />
       </Routes>
 
       <Footer />

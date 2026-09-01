@@ -130,10 +130,18 @@ function ProjectCard({ project, detailed }) {
         </div>
 
         <div className="mt-6 flex flex-wrap gap-2.5 pt-1">
-          <SmartLink href={links.details} className="btn btn-primary btn-sm">
-            Ver detalles
-            <ArrowUpRight className="h-4 w-4" />
-          </SmartLink>
+          {links.details && (
+            <SmartLink href={links.details} className="btn btn-primary btn-sm">
+              Ver detalles
+              <ArrowUpRight className="h-4 w-4" />
+            </SmartLink>
+          )}
+          {links.website && (
+            <SmartLink href={links.website} className="btn btn-primary btn-sm">
+              Visitar web
+              <ArrowUpRight className="h-4 w-4" />
+            </SmartLink>
+          )}
           {links.repo && (
             <SmartLink href={links.repo} className="btn btn-ghost btn-sm">
               <Github className="h-4 w-4" />

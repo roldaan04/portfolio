@@ -6,7 +6,7 @@
    - links.email     → email de contacto real
    - links.linkedin  → URL real de LinkedIn
    - links.github    → URL real de GitHub
-   - links.cv        → ruta real del PDF del CV (colocar en /public/cv/)
+   - links.cv        → OK: PDF servido desde /public/cv/ (ruta absoluta /cv/...)
    - projects[].repo / .demo / .details → enlaces reales de cada proyecto
    ============================================================ */
 
@@ -27,7 +27,7 @@ export const links = {
   email: "javirol2005@gmail.com",
   linkedin: "https://www.linkedin.com/in/javier-rold%C3%A1n-gallego-desarrollador-full-stack-programador/",
   github: "https://github.com/roldaan04",
-  cv: "src/assets/cv/JavierRoldanCV.pdf",
+  cv: "/cv/JavierRoldanCV.pdf",
   gmail:
     "https://mail.google.com/mail/?view=cm&fs=1&to=javirol2005@gmail.com&su=Contacto%20portfolio%20Javier%20Rold%C3%A1n",
 }

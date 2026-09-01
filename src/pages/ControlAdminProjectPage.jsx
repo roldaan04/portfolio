@@ -16,9 +16,11 @@ import tercerosImg from "../assets/images/control-admin/06Terceros.png"
 const badges = [
   "SaaS",
   "IA aplicada",
-  "Procesamiento documental",
+  "LLMs",
   "Dashboards",
-  "Gestión financiera",
+  "Python",
+  "FastAPI",
+  "Angular",
 ]
 
 const heroFacts = [
@@ -65,10 +67,21 @@ function BlockHeading({ index, eyebrow, title, className = "" }) {
   )
 }
 
-/* Bloque de sección: texto + imagen a dos columnas, alternable. */
-function FeatureRow({ index, eyebrow, title, children, image, alt, caption, reverse }) {
+/* Bloque de sección: texto + imagen a dos columnas, alternable.
+   `cols` permite dar más ancho a la captura cuando la pantalla lo necesita. */
+function FeatureRow({
+  index,
+  eyebrow,
+  title,
+  children,
+  image,
+  alt,
+  caption,
+  reverse,
+  cols = "lg:grid-cols-2",
+}) {
   return (
-    <section className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+    <section className={`grid items-center gap-8 lg:gap-14 ${cols}`}>
       <div className={reverse ? "lg:order-2" : ""}>
         <BlockHeading index={index} eyebrow={eyebrow} title={title} />
         <div className="mt-4 space-y-4 text-sm leading-relaxed text-slate-300 sm:text-base">
@@ -184,6 +197,7 @@ function ControlAdminProjectPage() {
           image={docsImg}
           alt="Pantalla de documentos de Control Admin con los archivos subidos y su estado de procesamiento"
           caption="Gestión de los documentos subidos"
+          cols="lg:grid-cols-[0.85fr_1.15fr]"
         >
           <p>
             El usuario puede subir varios documentos de una sola vez y controlar
@@ -266,6 +280,7 @@ function ControlAdminProjectPage() {
           image={fiscalidadImg}
           alt="Vista de fiscalidad de Control Admin con el IVA repercutido y soportado y las retenciones de IRPF"
           caption="IVA repercutido y soportado, y las dos direcciones del IRPF"
+          cols="lg:grid-cols-[0.72fr_1.28fr]"
         >
           <p>
             La vista de fiscalidad separa el IVA repercutido del soportado y
@@ -313,23 +328,6 @@ function ControlAdminProjectPage() {
             se repetiría sobre un volumen mucho mayor de facturas de ingresos y
             gastos.
           </p>
-        </section>
-
-        {/* 10 · Cierre */}
-        <section>
-          <div className="mx-auto max-w-2xl text-center">
-            <span className="eyebrow is-centered">De documento a decisión</span>
-            <h2 className="mt-4 text-2xl font-bold text-white sm:text-3xl">
-              Un flujo completo, de documento a decisión
-            </h2>
-            <p className="mt-4 text-sm leading-relaxed text-slate-400 sm:text-base">
-              Control Admin conecta en una misma experiencia la gestión
-              documental, la extracción asistida por IA, la revisión humana y la
-              visualización financiera. El resultado es un producto funcional
-              orientado a reducir tareas repetitivas sin perder control sobre los
-              datos.
-            </p>
-          </div>
         </section>
 
         {/* 11 · CTA final */}

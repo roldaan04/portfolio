@@ -218,7 +218,7 @@ export const projects = [
     ],
     accent: "accent",
     links: {
-      details: "#",
+      details: "/control-admin",
       repo: null,
       //demo: "#",
     },

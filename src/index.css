@@ -6,6 +6,9 @@
    Cambiar la paleta aquí actualiza toda la web.
    ============================================================ */
 @theme {
+  /* Breakpoints extra: pantallas muy estrechas (< 352px) */
+  --breakpoint-xs: 22rem;
+
   /* Fondos */
   --color-ink: #070b18;          /* azul noche / navy muy oscuro */
   --color-ink-2: #0b1020;        /* superficie base un punto más clara */

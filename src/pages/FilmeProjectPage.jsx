@@ -440,16 +440,23 @@ function FilmeProjectPage() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {/* En móvil la rejilla se compacta: 2 columnas, tarjeta más pequeña y
+              sin descripción, para no alargar la página. A partir de sm se
+              muestra completa igual que en escritorio. */}
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-5 lg:grid-cols-4">
             {proofs.map((p) => {
               const Icon = p.icon
               return (
-                <article key={p.title} className="glass glass-hover p-5">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-brand/20 bg-brand/10 text-brand">
-                    <Icon className="h-5 w-5" />
+                <article key={p.title} className="glass glass-hover p-4 sm:p-5">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-brand/20 bg-brand/10 text-brand sm:h-10 sm:w-10">
+                    <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
                   </span>
-                  <h3 className="mt-4 text-sm font-semibold text-white">{p.title}</h3>
-                  <p className="mt-1.5 text-xs leading-relaxed text-slate-400">{p.text}</p>
+                  <h3 className="mt-3 text-[13px] font-semibold leading-snug break-words text-white sm:mt-4 sm:text-sm">
+                    {p.title}
+                  </h3>
+                  <p className="mt-1.5 hidden text-xs leading-relaxed text-slate-400 sm:block">
+                    {p.text}
+                  </p>
                 </article>
               )
             })}

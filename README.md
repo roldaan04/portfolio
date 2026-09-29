@@ -2,6 +2,8 @@
 
 Este proyecto es el portfolio web personal de **Javier Roldán Gallego**, desarrollado para mostrar de forma clara y profesional mi perfil como **Full Stack Developer**.
 
+### 🌐 [Ver portfolio online](https://javier-roldan.vercel.app/)
+
 En este portfolio se recoge información sobre mi experiencia, formación, habilidades técnicas y proyectos completos, incluyendo trabajos relacionados con desarrollo frontend, backend, bases de datos, APIs, aplicaciones web, automatización de procesos y proyectos de Big Data e inteligencia artificial.
 
 El objetivo de esta web es servir como carta de presentación profesional, permitiendo acceder de forma organizada a toda mi información como desarrollador, así como a mis principales proyectos, experiencia laboral y enlaces relevantes.

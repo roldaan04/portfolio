@@ -3,8 +3,12 @@ import { useSite } from "../data/site"
 import { useT } from "../i18n/context"
 import { ArrowRight, Mail, Check, Spark } from "../components/Icons"
 
-import ProjectImage from "../components/ProjectImage"
-import { controlAdminImages as img, SIZES_FULL } from "../data/projectImages"
+import docsImg from "../assets/images/control-admin/01Docs.png"
+import detalleDocsImg from "../assets/images/control-admin/02DetalleDocs.png"
+import controlIaImg from "../assets/images/control-admin/03ControlIA.png"
+import dashboardImg from "../assets/images/control-admin/04Dashboard.png"
+import fiscalidadImg from "../assets/images/control-admin/05Fiscalidad.png"
+import tercerosImg from "../assets/images/control-admin/06Terceros.png"
 
 /* ------------------------------------------------------------------ */
 /* Datos de la página                                                 */
@@ -162,12 +166,12 @@ const copy = {
 /* ------------------------------------------------------------------ */
 
 /* Imagen (captura de la app) dentro de una tarjeta glass con glow. */
-function ImageCard({ image, alt, caption, sizes, priority, className = "" }) {
+function ImageCard({ src, alt, caption, className = "" }) {
   return (
     <figure className={`glass relative overflow-hidden p-2 ${className}`}>
       <div className="pointer-events-none absolute -top-16 left-1/2 h-32 w-2/3 -translate-x-1/2 rounded-full bg-accent/15 blur-3xl" />
       <div className="relative overflow-hidden rounded-xl border border-white/10 bg-ink-2/70">
-        <ProjectImage image={image} alt={alt} sizes={sizes} priority={priority} />
+        <img src={src} alt={alt} loading="lazy" className="block w-full object-contain" />
       </div>
       {caption && (
         <figcaption className="px-2 pb-1 pt-3 text-center text-xs text-slate-500">
@@ -206,7 +210,6 @@ function FeatureRow({
   alt,
   caption,
   reverse,
-  priority,
   cols = "lg:grid-cols-2",
 }) {
   return (
@@ -219,10 +222,9 @@ function FeatureRow({
       </div>
 
       <ImageCard
-        image={image}
+        src={image}
         alt={alt}
         caption={caption}
-        priority={priority}
         className={reverse ? "lg:order-1" : ""}
       />
     </section>
@@ -237,7 +239,7 @@ function FeatureWide({ index, eyebrow, title, children, image, alt, caption }) {
       <div className="mt-4 max-w-3xl space-y-4 text-sm leading-relaxed text-slate-300 sm:text-base">
         {children}
       </div>
-      <ImageCard image={image} alt={alt} caption={caption} sizes={SIZES_FULL} className="mt-8" />
+      <ImageCard src={image} alt={alt} caption={caption} className="mt-8" />
     </section>
   )
 }
@@ -322,8 +324,7 @@ function ControlAdminProjectPage() {
           index="01"
           eyebrow={t.docs.eyebrow}
           title={t.docs.title}
-          image={img.docs}
-          priority
+          image={docsImg}
           alt={t.docs.alt}
           caption={t.docs.caption}
           cols="lg:grid-cols-[0.85fr_1.15fr]"
@@ -344,7 +345,7 @@ function ControlAdminProjectPage() {
           index="02"
           eyebrow={t.detail.eyebrow}
           title={t.detail.title}
-          image={img.detalleDocs}
+          image={detalleDocsImg}
           alt={t.detail.alt}
           caption={t.detail.caption}
           reverse
@@ -357,7 +358,7 @@ function ControlAdminProjectPage() {
           index="03"
           eyebrow={t.ai.eyebrow}
           title={t.ai.title}
-          image={img.controlIa}
+          image={controlIaImg}
           alt={t.ai.alt}
           caption={t.ai.caption}
         >
@@ -370,7 +371,7 @@ function ControlAdminProjectPage() {
           index="04"
           eyebrow={t.dashboard.eyebrow}
           title={t.dashboard.title}
-          image={img.dashboard}
+          image={dashboardImg}
           alt={t.dashboard.alt}
           caption={t.dashboard.caption}
         >
@@ -382,7 +383,7 @@ function ControlAdminProjectPage() {
           index="05"
           eyebrow={t.tax.eyebrow}
           title={t.tax.title}
-          image={img.fiscalidad}
+          image={fiscalidadImg}
           alt={t.tax.alt}
           caption={t.tax.caption}
           cols="lg:grid-cols-[0.72fr_1.28fr]"
@@ -396,7 +397,7 @@ function ControlAdminProjectPage() {
           index="06"
           eyebrow={t.parties.eyebrow}
           title={t.parties.title}
-          image={img.terceros}
+          image={tercerosImg}
           alt={t.parties.alt}
           caption={t.parties.caption}
           reverse

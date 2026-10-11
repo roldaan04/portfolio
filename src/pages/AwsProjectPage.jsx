@@ -14,8 +14,13 @@ import {
   Layers,
 } from "../components/Icons"
 
-import ProjectImage from "../components/ProjectImage"
-import { awsImages as img } from "../data/projectImages"
+import s3BucketImg from "../assets/images/aws-project/s3Bucket.png"
+import lambdasImg from "../assets/images/aws-project/Lambdas.png"
+import modeloS3Img from "../assets/images/aws-project/modeloS3.png"
+import stepFunctionsImg from "../assets/images/aws-project/StepFunctions.png"
+import dynamoDBImg from "../assets/images/aws-project/dynamoDB.png"
+import dashboard1Img from "../assets/images/aws-project/dashboard1.png"
+import dashboard2Img from "../assets/images/aws-project/dashboard2.png"
 
 /* ------------------------------------------------------------------ */
 /* Datos de la página (cortos y centralizados aquí mismo)             */
@@ -299,12 +304,12 @@ const copy = {
 /* ------------------------------------------------------------------ */
 
 /* Imagen dentro de una tarjeta glass con borde, glow sutil y caption. */
-function ImageCard({ image, alt, caption, sizes, priority, className = "" }) {
+function ImageCard({ src, alt, caption, className = "" }) {
   return (
     <figure className={`glass relative overflow-hidden p-2 ${className}`}>
       <div className="pointer-events-none absolute -top-16 left-1/2 h-32 w-2/3 -translate-x-1/2 rounded-full bg-brand-2/15 blur-3xl" />
       <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-ink-2">
-        <ProjectImage image={image} alt={alt} sizes={sizes} priority={priority} />
+        <img src={src} alt={alt} loading="lazy" className="block w-full" />
       </div>
       {caption && (
         <figcaption className="px-2 pb-1 pt-3 text-center text-xs text-slate-500">
@@ -316,7 +321,7 @@ function ImageCard({ image, alt, caption, sizes, priority, className = "" }) {
 }
 
 /* Bloque de sección: texto + imagen a dos columnas, alternable. */
-function FeatureRow({ index, eyebrow, title, children, image, alt, caption, reverse, priority }) {
+function FeatureRow({ index, eyebrow, title, children, image, alt, caption, reverse }) {
   return (
     <section className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
       <div className={reverse ? "lg:order-2" : ""}>
@@ -335,10 +340,9 @@ function FeatureRow({ index, eyebrow, title, children, image, alt, caption, reve
       </div>
 
       <ImageCard
-        image={image}
+        src={image}
         alt={alt}
         caption={caption}
-        priority={priority}
         className={reverse ? "lg:order-1" : ""}
       />
     </section>
@@ -413,8 +417,7 @@ function AwsProjectPage() {
           index="1"
           eyebrow={t.data.eyebrow}
           title={t.data.title}
-          image={img.s3Bucket}
-          priority
+          image={s3BucketImg}
           alt={t.data.alt}
           caption={t.data.caption}
         >
@@ -435,7 +438,7 @@ function AwsProjectPage() {
           index="2"
           eyebrow={t.training.eyebrow}
           title={t.training.title}
-          image={img.modeloS3}
+          image={modeloS3Img}
           alt={t.training.alt}
           caption={t.training.caption}
           reverse
@@ -449,7 +452,7 @@ function AwsProjectPage() {
           index="3"
           eyebrow={t.lambdas.eyebrow}
           title={t.lambdas.title}
-          image={img.lambdas}
+          image={lambdasImg}
           alt={t.lambdas.alt}
           caption={t.lambdas.caption}
         >
@@ -471,7 +474,7 @@ function AwsProjectPage() {
           index="4"
           eyebrow={t.orchestration.eyebrow}
           title={t.orchestration.title}
-          image={img.stepFunctions}
+          image={stepFunctionsImg}
           alt={t.orchestration.alt}
           caption={t.orchestration.caption}
           reverse
@@ -494,7 +497,7 @@ function AwsProjectPage() {
           index="5"
           eyebrow={t.results.eyebrow}
           title={t.results.title}
-          image={img.dynamoDB}
+          image={dynamoDBImg}
           alt={t.results.alt}
           caption={t.results.caption}
         >
@@ -527,12 +530,12 @@ function AwsProjectPage() {
 
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
             <ImageCard
-              image={img.dashboard1}
+              src={dashboard1Img}
               alt={t.dashboard.alt1}
               caption={t.dashboard.caption1}
             />
             <ImageCard
-              image={img.dashboard2}
+              src={dashboard2Img}
               alt={t.dashboard.alt2}
               caption={t.dashboard.caption2}
             />

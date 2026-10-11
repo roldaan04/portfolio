@@ -15,11 +15,11 @@ import {
   Check,
 } from "../components/Icons"
 
-import portalFilmeImg from "../assets/images/filmMe/PortalFilMe.png"
-import popularesImg from "../assets/images/filmMe/Populares.png"
-import miListaImg from "../assets/images/filmMe/MiLista.png"
-import detallesImg from "../assets/images/filmMe/Detalles.png"
-import criticaImg from "../assets/images/filmMe/Critica.png"
+import portalFilmeImg from "../assets/images/filmMe/PortalFilMe.webp"
+import popularesImg from "../assets/images/filmMe/Populares.webp"
+import miListaImg from "../assets/images/filmMe/MiLista.webp"
+import detallesImg from "../assets/images/filmMe/Detalles.webp"
+import criticaImg from "../assets/images/filmMe/Critica.webp"
 
 const REPO_URL = "https://github.com/Laiton10/TFG/tree/master"
 

@@ -14,13 +14,13 @@ import {
   Layers,
 } from "../components/Icons"
 
-import s3BucketImg from "../assets/images/aws-project/s3Bucket.png"
-import lambdasImg from "../assets/images/aws-project/Lambdas.png"
-import modeloS3Img from "../assets/images/aws-project/modeloS3.png"
-import stepFunctionsImg from "../assets/images/aws-project/StepFunctions.png"
-import dynamoDBImg from "../assets/images/aws-project/dynamoDB.png"
-import dashboard1Img from "../assets/images/aws-project/dashboard1.png"
-import dashboard2Img from "../assets/images/aws-project/dashboard2.png"
+import s3BucketImg from "../assets/images/aws-project/s3Bucket.webp"
+import lambdasImg from "../assets/images/aws-project/Lambdas.webp"
+import modeloS3Img from "../assets/images/aws-project/modeloS3.webp"
+import stepFunctionsImg from "../assets/images/aws-project/StepFunctions.webp"
+import dynamoDBImg from "../assets/images/aws-project/dynamoDB.webp"
+import dashboard1Img from "../assets/images/aws-project/dashboard1.webp"
+import dashboard2Img from "../assets/images/aws-project/dashboard2.webp"
 
 /* ------------------------------------------------------------------ */
 /* Datos de la página (cortos y centralizados aquí mismo)             */

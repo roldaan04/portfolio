@@ -3,12 +3,12 @@ import { useSite } from "../data/site"
 import { useT } from "../i18n/context"
 import { ArrowRight, Mail, Check, Spark } from "../components/Icons"
 
-import docsImg from "../assets/images/control-admin/01Docs.png"
-import detalleDocsImg from "../assets/images/control-admin/02DetalleDocs.png"
-import controlIaImg from "../assets/images/control-admin/03ControlIA.png"
-import dashboardImg from "../assets/images/control-admin/04Dashboard.png"
-import fiscalidadImg from "../assets/images/control-admin/05Fiscalidad.png"
-import tercerosImg from "../assets/images/control-admin/06Terceros.png"
+import docsImg from "../assets/images/control-admin/01Docs.webp"
+import detalleDocsImg from "../assets/images/control-admin/02DetalleDocs.webp"
+import controlIaImg from "../assets/images/control-admin/03ControlIA.webp"
+import dashboardImg from "../assets/images/control-admin/04Dashboard.webp"
+import fiscalidadImg from "../assets/images/control-admin/05Fiscalidad.webp"
+import tercerosImg from "../assets/images/control-admin/06Terceros.webp"
 
 /* ------------------------------------------------------------------ */
 /* Datos de la página                                                 */

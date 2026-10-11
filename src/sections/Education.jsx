@@ -1,14 +1,22 @@
 import SectionHeading from "../components/SectionHeading"
-import { education } from "../data/site"
+import { useSite } from "../data/site"
+import { useT } from "../i18n/context"
 import { GraduationCap } from "../components/Icons"
 
+const copy = {
+  es: { eyebrow: "Formación", title: "Una base sólida, con un extra en datos e IA" },
+  en: { eyebrow: "Education", title: "A solid foundation, with an extra edge in data and AI" },
+}
+
 function Education() {
+  const { education } = useSite()
+  const t = useT(copy)
   return (
     <section id="formacion" className="mx-auto max-w-7xl px-6 py-16 sm:py-24">
       <SectionHeading
         align="center"
-        eyebrow="Formación"
-        title="Una base sólida, con un extra en datos e IA"
+        eyebrow={t.eyebrow}
+        title={t.title}
       />
 
       <div className="mt-10 grid gap-5 sm:mt-12 sm:gap-6 md:grid-cols-2">

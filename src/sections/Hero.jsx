@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom"
-import { profile, links, hero } from "../data/site"
+import { useSite } from "../data/site"
+import { useT } from "../i18n/context"
 import { ArrowRight, Mail, Download } from "../components/Icons"
 
-const codeLines = [
+const codeLines = (roleKey) => [
   { t: [{ c: "violet", v: "const" }, { c: "white", v: " javier" }, { c: "muted", v: " = {" }] },
-  { t: [{ c: "muted", v: "  rol: " }, { c: "accent", v: "'Full Stack Developer'" }, { c: "muted", v: "," }] },
+  { t: [{ c: "muted", v: `  ${roleKey}: ` }, { c: "accent", v: "'Full Stack Developer'" }, { c: "muted", v: "," }] },
   {
     t: [
       { c: "muted", v: "  stack: [" },
@@ -40,7 +41,36 @@ const codeColor = {
   brand: "text-brand",
 }
 
+const copy = {
+  es: {
+    viewProjects: "Ver proyectos",
+    contact: "Contactar",
+    downloadCv: "Descargar CV",
+    fileName: "javier.dev — perfil.js",
+    roleKey: "rol",
+    metrics: [
+      { v: "Proyectos reales", l: "empresa + portfolio" },
+      { v: "Full Stack", l: "+ IA/Data" },
+    ],
+    experience: "experiencia",
+  },
+  en: {
+    viewProjects: "View projects",
+    contact: "Contact",
+    downloadCv: "Download CV",
+    fileName: "javier.dev — profile.js",
+    roleKey: "role",
+    metrics: [
+      { v: "Real projects", l: "company + portfolio" },
+      { v: "Full Stack", l: "+ AI/Data" },
+    ],
+    experience: "experience",
+  },
+}
+
 function Hero() {
+  const { profile, links, hero } = useSite()
+  const t = useT(copy)
   return (
     <section className="relative mx-auto max-w-7xl px-6 pt-28 pb-16 sm:pt-36 md:pb-24 lg:pt-40">
       <div className="grid items-center gap-12 sm:gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
@@ -65,16 +95,16 @@ function Hero() {
 
           <div className="mt-8 flex flex-wrap justify-center gap-3 sm:mt-9 lg:justify-start">
             <Link to="/proyectos" className="btn btn-primary">
-              Ver proyectos
+              {t.viewProjects}
               <ArrowRight className="h-4 w-4" />
             </Link>
             <a href="#contacto" className="btn btn-ghost">
               <Mail className="h-4 w-4" />
-              Contactar
+              {t.contact}
             </a>
             <a href={links.cv} download className="btn btn-ghost">
               <Download className="h-4 w-4" />
-              Descargar CV
+              {t.downloadCv}
             </a>
           </div>
         </div>
@@ -91,7 +121,7 @@ function Hero() {
               <span className="h-3 w-3 shrink-0 rounded-full bg-yellow-400/70" />
               <span className="h-3 w-3 shrink-0 rounded-full bg-green-400/70" />
               <span className="ml-2 truncate font-mono text-[11px] text-slate-500 sm:text-xs">
-                javier.dev — perfil.js
+                {t.fileName}
               </span>
             </div>
 
@@ -113,7 +143,7 @@ function Hero() {
 
               {/* Mini bloque de código */}
               <div className="mt-5 rounded-xl border border-white/10 bg-ink/80 p-3 font-mono text-[11px] leading-relaxed sm:p-4 sm:text-xs lg:text-[13px]">
-                {codeLines.map((line, i) => (
+                {codeLines(t.roleKey).map((line, i) => (
                   <div key={i} className="flex items-start">
                     <span className="mr-3 select-none text-slate-600 sm:mr-4">{i + 1}</span>
                     <span className="min-w-0 whitespace-pre-wrap break-words">
@@ -130,9 +160,8 @@ function Hero() {
               {/* Mini métricas */}
               <div className="mt-5 grid grid-cols-3 gap-2 sm:gap-3">
                 {[
-                  { v: profile.experienceYears, l: "experiencia" },
-                  { v: "Proyectos reales", l: "empresa + portfolio" },
-                  { v: "Full Stack", l: "+ IA/Data" },
+                  { v: profile.experienceYears, l: t.experience },
+                  ...t.metrics,
                 ].map((m) => (
                   <div
                     key={m.l}

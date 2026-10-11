@@ -1,7 +1,15 @@
-import { contact, links, profile } from "../data/site"
+import { useSite } from "../data/site"
+import { useT } from "../i18n/context"
 import { Mail, Linkedin, Github, Download } from "../components/Icons"
 
+const copy = {
+  es: { eyebrow: "Contacto", sendEmail: "Enviar email", downloadCv: "Descargar CV" },
+  en: { eyebrow: "Contact", sendEmail: "Send email", downloadCv: "Download CV" },
+}
+
 function  Contact() {
+  const { contact, links, profile } = useSite()
+  const t = useT(copy)
   return (
     <section id="contacto" className="mx-auto max-w-7xl px-6 py-16 sm:py-24">
       <div className="glass hairline-top relative overflow-hidden p-6 sm:p-10 lg:p-12">
@@ -12,7 +20,7 @@ function  Contact() {
         <div className="relative grid gap-8 sm:gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-14">
           {/* CTA */}
           <div>
-            <span className="eyebrow">Contacto</span>
+            <span className="eyebrow">{t.eyebrow}</span>
             <h2 className="mt-4 text-2xl font-bold leading-tight text-white xs:text-3xl sm:text-4xl">
               {contact.title}
             </h2>
@@ -23,7 +31,7 @@ function  Contact() {
             <div className="mt-7 flex flex-wrap gap-3 sm:mt-8">
               <a href={links.gmail} target="_blank" rel="noreferrer"  className="btn btn-primary">
                 <Mail className="h-4 w-4" />
-                Enviar email
+                {t.sendEmail}
               </a>
               <a
                 href={links.linkedin}
@@ -45,7 +53,7 @@ function  Contact() {
               </a>
               <a href={links.cv} download className="btn btn-ghost">
                 <Download className="h-4 w-4" />
-                Descargar CV
+                {t.downloadCv}
               </a>
             </div>
           </div>

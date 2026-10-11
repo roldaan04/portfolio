@@ -1,7 +1,39 @@
 import { Link } from "react-router-dom"
 import SectionHeading from "../components/SectionHeading"
-import { projects as allProjects } from "../data/site"
+import { useSite } from "../data/site"
+import { useT } from "../i18n/context"
 import { ArrowRight, ArrowUpRight, Github, Folder } from "../components/Icons"
+
+const copy = {
+  es: {
+    eyebrow: "Proyectos",
+    title: "Casos que demuestran lo que sé hacer",
+    subtitle:
+      "Una selección de proyectos reales y académicos: frontend, backend, bases de datos, cloud, IA y lógica de negocio aplicada.",
+    viewAll: "Ver todos los proyectos",
+    problem: "Problema que resuelve",
+    contribution: "Qué hice",
+    proves: "Qué demuestra",
+    details: "Ver detalles",
+    website: "Visitar web",
+    repo: "Repositorio",
+    demo: "Demo",
+  },
+  en: {
+    eyebrow: "Projects",
+    title: "Work that shows what I can do",
+    subtitle:
+      "A selection of real and academic projects: frontend, backend, databases, cloud, AI and applied business logic.",
+    viewAll: "View all projects",
+    problem: "Problem it solves",
+    contribution: "What I did",
+    proves: "What it shows",
+    details: "View details",
+    website: "Visit website",
+    repo: "Repository",
+    demo: "Demo",
+  },
+}
 
 const accentStyles = {
   brand: { glow: "from-brand/30", text: "text-brand", dot: "bg-brand", bar: "bg-brand/70" },
@@ -74,6 +106,7 @@ function ProjectMockup({ project, a }) {
 }
 
 function ProjectCard({ project, detailed }) {
+  const t = useT(copy)
   const a = accentStyles[project.accent] || accentStyles.brand
   const { links } = project
 
@@ -96,7 +129,7 @@ function ProjectCard({ project, detailed }) {
           <div className="mt-5 space-y-4 border-t border-white/5 pt-5">
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                Problema que resuelve
+                {t.problem}
               </p>
               <p className="mt-1.5 text-sm leading-relaxed text-slate-300">
                 {project.problem}
@@ -104,7 +137,7 @@ function ProjectCard({ project, detailed }) {
             </div>
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                Qué hice
+                {t.contribution}
               </p>
               <p className="mt-1.5 text-sm leading-relaxed text-slate-300">
                 {project.contribution}
@@ -112,7 +145,7 @@ function ProjectCard({ project, detailed }) {
             </div>
             <div className={`rounded-xl border border-white/10 bg-white/[0.03] p-4`}>
               <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                Qué demuestra
+                {t.proves}
               </p>
               <p className={`mt-1.5 text-sm leading-relaxed ${a.text}`}>
                 {project.proves}
@@ -132,26 +165,26 @@ function ProjectCard({ project, detailed }) {
         <div className="mt-6 flex flex-wrap gap-2.5 pt-1">
           {links.details && (
             <SmartLink href={links.details} className="btn btn-primary btn-sm">
-              Ver detalles
+              {t.details}
               <ArrowUpRight className="h-4 w-4" />
             </SmartLink>
           )}
           {links.website && (
             <SmartLink href={links.website} className="btn btn-primary btn-sm">
-              Visitar web
+              {t.website}
               <ArrowUpRight className="h-4 w-4" />
             </SmartLink>
           )}
           {links.repo && (
             <SmartLink href={links.repo} className="btn btn-ghost btn-sm">
               <Github className="h-4 w-4" />
-              Repositorio
+              {t.repo}
             </SmartLink>
           )}
           {links.demo && (
             <SmartLink href={links.demo} className="btn btn-ghost btn-sm">
               <Folder className="h-4 w-4" />
-              Demo
+              {t.demo}
             </SmartLink>
           )}
         </div>
@@ -162,25 +195,28 @@ function ProjectCard({ project, detailed }) {
 
 /* Sección de proyectos. `detailed` expande cada caso; `withCta` muestra el
    enlace a la página completa (en la Home). */
-function Projects({ items = allProjects, detailed = false, withCta = true }) {
+function Projects({ items, detailed = false, withCta = true }) {
+  const { projects: allProjects } = useSite()
+  const t = useT(copy)
+  const list = items ?? allProjects
   return (
     <section id="proyectos" className="mx-auto max-w-7xl px-6 py-20 sm:py-24">
       <div className="flex flex-wrap items-end justify-between gap-6">
         <SectionHeading
-          eyebrow="Proyectos"
-          title="Casos que demuestran lo que sé hacer"
-          subtitle="Una selección de proyectos reales y académicos: frontend, backend, bases de datos, cloud, IA y lógica de negocio aplicada."
+          eyebrow={t.eyebrow}
+          title={t.title}
+          subtitle={t.subtitle}
         />
         {withCta && (
           <Link to="/proyectos" className="btn btn-ghost btn-sm shrink-0">
-            Ver todos los proyectos
+            {t.viewAll}
             <ArrowRight className="h-4 w-4" />
           </Link>
         )}
       </div>
 
       <div className={`mt-12 grid gap-6 ${detailed ? "lg:grid-cols-2" : "md:grid-cols-2"}`}>
-        {items.map((project) => (
+        {list.map((project) => (
           <ProjectCard key={project.id} project={project} detailed={detailed} />
         ))}
       </div>

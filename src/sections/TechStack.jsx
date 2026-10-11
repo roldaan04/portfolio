@@ -1,14 +1,22 @@
 import SectionHeading from "../components/SectionHeading"
-import { stack } from "../data/site"
+import { useSite } from "../data/site"
+import { useT } from "../i18n/context"
 import { iconMap } from "../components/iconMap"
 
+const copy = {
+  es: { eyebrow: "Stack tecnológico", title: "Tecnologías con las que trabajo" },
+  en: { eyebrow: "Tech stack", title: "Technologies I work with" },
+}
+
 function TechStack() {
+  const { stack } = useSite()
+  const t = useT(copy)
   return (
     <section id="stack" className="mx-auto max-w-7xl px-6 py-16 sm:py-24">
       <SectionHeading
         align="center"
-        eyebrow="Stack tecnológico"
-        title="Tecnologías con las que trabajo"
+        eyebrow={t.eyebrow}
+        title={t.title}
       />
 
       <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">

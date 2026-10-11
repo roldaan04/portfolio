@@ -1,14 +1,28 @@
 import SectionHeading from "../components/SectionHeading"
-import { about } from "../data/site"
+import { useSite } from "../data/site"
+import { useT } from "../i18n/context"
 import { iconMap } from "../components/iconMap"
 
+const copy = {
+  es: {
+    eyebrow: "Sobre mí",
+    title: "Desarrollador full stack con experiencia real y ganas de crecer",
+  },
+  en: {
+    eyebrow: "About me",
+    title: "Full stack developer with real-world experience and eager to grow",
+  },
+}
+
 function About() {
+  const { about } = useSite()
+  const t = useT(copy)
   return (
     <section id="sobre-mi" className="mx-auto max-w-7xl px-6 py-16 sm:py-24">
       <div className="grid gap-10 sm:gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
         <SectionHeading
-          eyebrow="Sobre mí"
-          title="Desarrollador full stack con experiencia real y ganas de crecer"
+          eyebrow={t.eyebrow}
+          title={t.title}
           subtitle={about.text}
         />
 

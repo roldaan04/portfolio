@@ -1,15 +1,35 @@
 import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
-import { profile, links } from "../data/site"
+import { useSite } from "../data/site"
+import { useT } from "../i18n/context"
 import { Download, Mail } from "./Icons"
+import LanguageToggle from "./LanguageToggle"
 
-const navLinks = [
-  { to: "/", label: "Inicio" },
-  { to: "/experiencia", label: "Experiencia" },
-  { to: "/proyectos", label: "Proyectos" },
-]
+const copy = {
+  es: {
+    nav: ["Inicio", "Experiencia", "Proyectos"],
+    downloadCv: "Descargar CV",
+    contact: "Contactar",
+    openMenu: "Abrir menú",
+    closeMenu: "Cerrar menú",
+    menu: "Menú",
+  },
+  en: {
+    nav: ["Home", "Experience", "Projects"],
+    downloadCv: "Download CV",
+    contact: "Contact",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
+    menu: "Menu",
+  },
+}
+
+const navRoutes = ["/", "/experiencia", "/proyectos"]
 
 function Header() {
+  const { profile, links } = useSite()
+  const t = useT(copy)
+  const navLinks = navRoutes.map((to, i) => ({ to, label: t.nav[i] }))
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -52,7 +72,7 @@ function Header() {
           </NavLink>
 
           {/* Navegación escritorio */}
-          <div className="hidden items-center gap-8 md:flex">
+          <div className="hidden items-center gap-6 md:flex lg:gap-8">
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}
@@ -75,19 +95,20 @@ function Header() {
           </div>
 
           {/* CTAs escritorio */}
-          <div className="hidden items-center gap-3 md:flex">
+          <div className="hidden items-center gap-2 md:flex lg:gap-3">
+            <LanguageToggle />
             <a
               href={links.cv}
               download
               className="btn btn-ghost btn-sm"
-              aria-label="Descargar CV"
+              aria-label={t.downloadCv}
             >
               <Download className="h-4 w-4" />
               CV
             </a>
             <a href={links.gmail} target="_blank" rel="noreferrer" className="btn btn-primary btn-sm">
               <Mail className="h-4 w-4" />
-              Contactar
+              {t.contact}
             </a>
           </div>
 
@@ -95,11 +116,11 @@ function Header() {
           <button
             type="button"
             onClick={() => setIsOpen((prev) => !prev)}
-            aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-label={isOpen ? t.closeMenu : t.openMenu}
             aria-expanded={isOpen}
             className="flex h-10 w-10 items-center justify-center md:hidden"
           >
-            <span className="sr-only">Menú</span>
+            <span className="sr-only">{t.menu}</span>
             <div className="relative h-5 w-6">
               <span
                 className={`absolute left-0 block h-0.5 w-6 rounded-full bg-white transition-all duration-300 ${
@@ -162,6 +183,8 @@ function Header() {
             </NavLink>
           ))}
 
+          <LanguageToggle className="mt-4 self-start" />
+
           <div className="mt-4 flex flex-col gap-3">
             <a
               href={links.cv}
@@ -170,11 +193,11 @@ function Header() {
               className="btn btn-ghost w-full"
             >
               <Download className="h-4 w-4" />
-              Descargar CV
+              {t.downloadCv}
             </a>
             <a href={links.gmail} target="_blank" rel="noreferrer" onClick={closeMenu} className="btn btn-primary w-full">
               <Mail className="h-4 w-4" />
-              Contactar
+              {t.contact}
             </a>
           </div>
         </div>

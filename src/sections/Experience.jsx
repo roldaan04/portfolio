@@ -1,23 +1,45 @@
 import { Link } from "react-router-dom"
 import SectionHeading from "../components/SectionHeading"
-import { experience } from "../data/site"
+import { useSite } from "../data/site"
+import { useT } from "../i18n/context"
 import { ArrowRight, Briefcase, Check, MapPin, ArrowUpRight } from "../components/Icons"
 
 /* Timeline de experiencia. `withCta` muestra el enlace a la página completa
    (Home); en la página de Experiencia se oculta. */
+const copy = {
+  es: {
+    eyebrow: "Experiencia profesional",
+    title: "Experiencia real en producto de empresa",
+    subtitle:
+      "No solo proyectos académicos: he desarrollado y mantenido aplicaciones completas en uso real, con lógica de negocio compleja.",
+    cta: "Ver experiencia completa",
+    proves: "Lo que demuestra esta experiencia",
+  },
+  en: {
+    eyebrow: "Professional experience",
+    title: "Real-world experience on a company product",
+    subtitle:
+      "Not just academic projects: I've developed and maintained complete applications in real use, with complex business logic.",
+    cta: "View full experience",
+    proves: "What this experience shows",
+  },
+}
+
 function Experience({ withCta = true, showHeading = true, compactTop = false }) {
+  const { experience } = useSite()
+  const t = useT(copy)
   return (
     <section  id="experiencia"  className={`mx-auto max-w-7xl px-6 pb-20 sm:pb-24 ${compactTop ? "pt-4 sm:pt-6" : "pt-20 sm:pt-24"}`}>
       {showHeading && (
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeading
-            eyebrow="Experiencia profesional"
-            title="Experiencia real en producto de empresa"
-            subtitle="No solo proyectos académicos: he desarrollado y mantenido aplicaciones completas en uso real, con lógica de negocio compleja."
+            eyebrow={t.eyebrow}
+            title={t.title}
+            subtitle={t.subtitle}
           />
           {withCta && (
             <Link to="/experiencia" className="btn btn-ghost btn-sm shrink-0">
-              Ver experiencia completa
+              {t.cta}
               <ArrowRight className="h-4 w-4" />
             </Link>
           )}
@@ -100,7 +122,7 @@ function Experience({ withCta = true, showHeading = true, compactTop = false }) 
       {/* Lo que demuestra esta experiencia */}
       <div className="glass mt-8 p-6 sm:p-8">
         <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
-          Lo que demuestra esta experiencia
+          {t.proves}
         </h3>
         <div className="mt-4 flex flex-wrap gap-2.5">
           {experience.proves.map((item) => (

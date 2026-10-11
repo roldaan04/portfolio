@@ -1,10 +1,18 @@
 import { Link } from "react-router-dom"
-import { profile, links } from "../data/site"
+import { useSite } from "../data/site"
+import { useT } from "../i18n/context"
 import { Github, Linkedin, Mail } from "./Icons"
 
 const year = 2026
 
+const copy = {
+  es: { rights: "Todos los derechos reservados." },
+  en: { rights: "All rights reserved." },
+}
+
 function Footer() {
+  const { profile, links } = useSite()
+  const t = useT(copy)
   return (
     <footer className="relative border-t border-white/10">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-12 md:flex-row md:items-center md:justify-between">
@@ -45,7 +53,7 @@ function Footer() {
 
       <div className="border-t border-white/5">
         <p className="mx-auto max-w-7xl px-6 py-5 text-center text-xs text-slate-500">
-          © {year} {profile.name}. Todos los derechos reservados.
+          © {year} {profile.name}. {t.rights}
         </p>
       </div>
     </footer>

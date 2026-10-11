@@ -15,11 +15,8 @@ import {
   Check,
 } from "../components/Icons"
 
-import portalFilmeImg from "../assets/images/filmMe/PortalFilMe.png"
-import popularesImg from "../assets/images/filmMe/Populares.png"
-import miListaImg from "../assets/images/filmMe/MiLista.png"
-import detallesImg from "../assets/images/filmMe/Detalles.png"
-import criticaImg from "../assets/images/filmMe/Critica.png"
+import ProjectImage from "../components/ProjectImage"
+import { filmeImages as img } from "../data/projectImages"
 
 const REPO_URL = "https://github.com/Laiton10/TFG/tree/master"
 
@@ -311,12 +308,12 @@ const copy = {
 /* ------------------------------------------------------------------ */
 
 /* Imagen (captura de la app) dentro de una tarjeta glass con glow. */
-function ImageCard({ src, alt, caption, className = "" }) {
+function ImageCard({ image, alt, caption, sizes, priority, className = "" }) {
   return (
     <figure className={`glass relative overflow-hidden p-2 ${className}`}>
       <div className="pointer-events-none absolute -top-16 left-1/2 h-32 w-2/3 -translate-x-1/2 rounded-full bg-brand/15 blur-3xl" />
       <div className="relative overflow-hidden rounded-xl border border-white/10 bg-ink-2/70">
-        <img src={src} alt={alt} loading="lazy" className="block w-full object-contain" />
+        <ProjectImage image={image} alt={alt} sizes={sizes} priority={priority} />
       </div>
       {caption && (
         <figcaption className="px-2 pb-1 pt-3 text-center text-xs text-slate-500">
@@ -328,7 +325,7 @@ function ImageCard({ src, alt, caption, className = "" }) {
 }
 
 /* Bloque de sección: texto + imagen a dos columnas, alternable. */
-function FeatureRow({ index, eyebrow, title, children, image, alt, caption, reverse }) {
+function FeatureRow({ index, eyebrow, title, children, image, alt, caption, reverse, priority }) {
   return (
     <section className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
       <div className={reverse ? "lg:order-2" : ""}>
@@ -347,9 +344,10 @@ function FeatureRow({ index, eyebrow, title, children, image, alt, caption, reve
       </div>
 
       <ImageCard
-        src={image}
+        image={image}
         alt={alt}
         caption={caption}
+        priority={priority}
         className={reverse ? "lg:order-1" : ""}
       />
     </section>
@@ -475,7 +473,8 @@ function FilmeProjectPage() {
           index="1"
           eyebrow={t.portal.eyebrow}
           title={t.portal.title}
-          image={portalFilmeImg}
+          image={img.portalFilme}
+          priority
           alt={t.portal.alt}
           caption={t.portal.caption}
         >
@@ -488,7 +487,7 @@ function FilmeProjectPage() {
           index="2"
           eyebrow={t.popular.eyebrow}
           title={t.popular.title}
-          image={popularesImg}
+          image={img.populares}
           alt={t.popular.alt}
           caption={t.popular.caption}
           reverse
@@ -502,7 +501,7 @@ function FilmeProjectPage() {
           index="3"
           eyebrow={t.myList.eyebrow}
           title={t.myList.title}
-          image={miListaImg}
+          image={img.miLista}
           alt={t.myList.alt}
           caption={t.myList.caption}
         >
@@ -515,7 +514,7 @@ function FilmeProjectPage() {
           index="4"
           eyebrow={t.detail.eyebrow}
           title={t.detail.title}
-          image={detallesImg}
+          image={img.detalles}
           alt={t.detail.alt}
           caption={t.detail.caption}
           reverse
@@ -529,7 +528,7 @@ function FilmeProjectPage() {
           index="5"
           eyebrow={t.review.eyebrow}
           title={t.review.title}
-          image={criticaImg}
+          image={img.critica}
           alt={t.review.alt}
           caption={t.review.caption}
         >

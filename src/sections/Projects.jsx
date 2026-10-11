@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import SectionHeading from "../components/SectionHeading"
 import { useSite } from "../data/site"
 import { useT } from "../i18n/context"
+import { prefetchProjectImages } from "../data/projectImages"
 import { ArrowRight, ArrowUpRight, Github, Folder } from "../components/Icons"
 
 const copy = {
@@ -46,8 +47,17 @@ function SmartLink({ href, className, children }) {
   if (!href) return null
   const internal = href.startsWith("/")
   if (internal) {
+    // Al apuntar al enlace (ratón, foco o toque) precargamos las capturas
+    // de la página de detalle para que se vean al instante al entrar.
+    const prefetch = () => prefetchProjectImages(href)
     return (
-      <Link to={href} className={className}>
+      <Link
+        to={href}
+        className={className}
+        onMouseEnter={prefetch}
+        onFocus={prefetch}
+        onTouchStart={prefetch}
+      >
         {children}
       </Link>
     )

@@ -50,6 +50,7 @@ const es = {
   links: {
     ...sharedLinks,
     gmail: gmailUrl("Contacto portfolio Javier Roldán"),
+    gmailFreelance: gmailUrl("Presupuesto web"),
   },
 
   hero: {
@@ -315,6 +316,82 @@ const es = {
     },
   ],
 
+  /* Página /freelance: no se enlaza desde ningún sitio de la web, solo se
+     comparte el link directamente con posibles clientes. Kristalia se toma
+     de `projects` (id "kristalia") para no duplicarla. */
+  freelance: {
+    eyebrow: "Freelance · Webs para negocios y particulares",
+    titleLead: "¿Necesitas una web?",
+    titleHighlight: "Te la diseño y desarrollo a medida.",
+    intro:
+      "Creo webs profesionales para negocios, autónomos y particulares: rápidas, adaptadas al móvil, preparadas para aparecer en Google y pensadas para que tus visitantes te contacten. Me encargo de todo, desde la idea hasta dejarla publicada.",
+    services: [
+      {
+        icon: "code",
+        title: "Diseño a medida",
+        text: "Una web con la identidad de tu marca, sin plantillas genéricas.",
+      },
+      {
+        icon: "trending",
+        title: "Preparada para Google",
+        text: "SEO local, metadatos y alta en Search Console desde el primer día.",
+      },
+      {
+        icon: "workflow",
+        title: "Pensada para captar clientes",
+        text: "Botones de WhatsApp, llamada y contacto donde de verdad se usan.",
+      },
+      {
+        icon: "cloud",
+        title: "Publicada y lista",
+        text: "Dominio, despliegue y analítica configurados. Tú solo la compartes.",
+      },
+    ],
+    examplesEyebrow: "Ejemplos",
+    examplesTitle: "Webs que he desarrollado para clientes",
+    examplesSubtitle:
+      "Proyectos reales para negocios de distintos sectores, cada uno con su propia identidad y objetivo.",
+    projects: [
+      {
+        id: "briloria",
+        category: "Proyecto freelance · Web de servicios",
+        title: "Briloria",
+        summary:
+          "Web para una empresa de servicios de limpieza en Madrid y la Comunidad de Madrid, pensada para conseguir solicitudes de presupuesto por WhatsApp y posicionar en Google.",
+        problem:
+          "La empresa necesitaba presentar su catálogo completo (abrillantado de suelos, cristales, moquetas, fachadas, paneles solares, sofás…) y convertir visitas en contactos de forma directa, sin formularios.",
+        contribution:
+          "Diseño y desarrollo completo de la web, con páginas propias para cada servicio y contacto directo por WhatsApp. Optimizada para posicionar en Google en búsquedas locales.",
+        proves:
+          "Capacidad para construir una web comercial orientada a conversión y SEO local, con contenido centralizado y fácil de mantener.",
+        tech: ["React", "React Router", "Vite", "SEO local", "Prerender", "Datos estructurados", "Responsive"],
+        accent: "brand-2",
+        links: { details: null, website: null, websitePending: true, repo: null },
+      },
+      {
+        id: "entrenador",
+        category: "Proyecto freelance · Marca personal",
+        title: "Web para entrenador personal",
+        summary:
+          "Web profesional para un preparador físico y entrenador personal en Madrid, con servicio presencial y online, diseñada con personalidad propia y orientada a que el visitante escriba por WhatsApp.",
+        problem:
+          "El cliente necesitaba una web que transmitiera en pocos segundos quién es y qué ofrece, generara confianza y no pareciera una plantilla genérica.",
+        contribution:
+          "Diseño y desarrollo de una web con identidad propia, páginas para cada servicio, tarifas y contacto por WhatsApp. Rápida, accesible y preparada para posicionar en Google.",
+        proves:
+          "Saber trasladar la personalidad de una marca a una web rápida, accesible y optimizada para buscadores, con la calidad verificada por tests.",
+        tech: ["Next.js", "React", "CSS Modules", "SEO", "JSON-LD", "Playwright", "Accesibilidad"],
+        accent: "accent",
+        links: { details: null, website: null, websitePending: true, repo: null },
+      },
+    ],
+    ctaPrimary: "Pedir presupuesto",
+    ctaSecondary: "Ver otros proyectos",
+    finalTitle: "¿Tienes un negocio y quieres tu propia web?",
+    finalText: "Cuéntame tu idea y te preparo una propuesta sin compromiso.",
+    finalCta: "Escríbeme",
+  },
+
   contact: {
     title: "¿Buscas un desarrollador con ganas de crecer y aportar desde el primer día?",
     text: "Estoy abierto a nuevas oportunidades como desarrollador full stack junior. Puedes contactarme para entrevistas, procesos de selección o colaboraciones profesionales.",
@@ -345,6 +422,7 @@ const en = {
     ...sharedLinks,
     cv: "/cv/JavierRoldan_CV.pdf",
     gmail: gmailUrl("Portfolio contact Javier Roldán"),
+    gmailFreelance: gmailUrl("Website quote"),
   },
 
   hero: {
@@ -609,6 +687,79 @@ const en = {
       ],
     },
   ],
+
+  freelance: {
+    eyebrow: "Freelance · Websites for businesses and individuals",
+    titleLead: "Need a website?",
+    titleHighlight: "I'll design and build it for you.",
+    intro:
+      "I build professional websites for businesses, freelancers and individuals: fast, mobile-friendly, ready to show up on Google and designed to get your visitors in touch. I handle everything, from the idea to the launch.",
+    services: [
+      {
+        icon: "code",
+        title: "Custom design",
+        text: "A website with your brand's identity, no generic templates.",
+      },
+      {
+        icon: "trending",
+        title: "Ready for Google",
+        text: "Local SEO, metadata and Search Console set up from day one.",
+      },
+      {
+        icon: "workflow",
+        title: "Built to win clients",
+        text: "WhatsApp, call and contact buttons right where people use them.",
+      },
+      {
+        icon: "cloud",
+        title: "Live and ready",
+        text: "Domain, deployment and analytics configured. You just share it.",
+      },
+    ],
+    examplesEyebrow: "Examples",
+    examplesTitle: "Websites I've built for clients",
+    examplesSubtitle:
+      "Real projects for businesses in different sectors, each with its own identity and goal.",
+    projects: [
+      {
+        id: "briloria",
+        category: "Freelance project · Services website",
+        title: "Briloria",
+        summary:
+          "Website for a cleaning services company in Madrid and the wider Madrid region, designed to generate quote requests via WhatsApp and rank on Google.",
+        problem:
+          "The company needed to showcase its full catalogue (floor polishing, windows, carpets, façades, solar panels, sofas…) and turn visits into direct contacts, without forms.",
+        contribution:
+          "Full design and development of the website, with a dedicated page for each service and direct contact via WhatsApp. Optimised to rank on Google for local searches.",
+        proves:
+          "Ability to build a commercial website focused on conversion and local SEO, with centralised, easy-to-maintain content.",
+        tech: ["React", "React Router", "Vite", "Local SEO", "Prerender", "Structured data", "Responsive"],
+        accent: "brand-2",
+        links: { details: null, website: null, websitePending: true, repo: null },
+      },
+      {
+        id: "entrenador",
+        category: "Freelance project · Personal brand",
+        title: "Website for a personal trainer",
+        summary:
+          "Professional website for a strength coach and personal trainer in Madrid, offering in-person and online training, designed with its own personality to get visitors to message on WhatsApp.",
+        problem:
+          "The client needed a website that conveys who he is and what he offers within seconds, builds trust and doesn't look like a generic template.",
+        contribution:
+          "Design and development of a website with its own identity, pages for each service, pricing and WhatsApp contact. Fast, accessible and ready to rank on Google.",
+        proves:
+          "Translating a brand's personality into a fast, accessible, search-optimised website, with quality verified by tests.",
+        tech: ["Next.js", "React", "CSS Modules", "SEO", "JSON-LD", "Playwright", "Accessibility"],
+        accent: "accent",
+        links: { details: null, website: null, websitePending: true, repo: null },
+      },
+    ],
+    ctaPrimary: "Request a quote",
+    ctaSecondary: "See other projects",
+    finalTitle: "Have a business and want your own website?",
+    finalText: "Tell me your idea and I'll prepare a no-obligation proposal.",
+    finalCta: "Get in touch",
+  },
 
   contact: {
     title: "Looking for a developer eager to grow and contribute from day one?",

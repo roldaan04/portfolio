@@ -9,6 +9,7 @@ import ProjectsPage from './pages/ProjectsPage'
 import AwsProjectPage from './pages/AwsProjectPage'
 import FilmeProjectPage from './pages/FilmeProjectPage'
 import ControlAdminProjectPage from './pages/ControlAdminProjectPage'
+import FreelancePage from './pages/FreelancePage'
 
 /* Al navegar entre rutas, vuelve arriba (salvo si hay un #ancla). */
 function ScrollToTop() {
@@ -34,6 +35,8 @@ function App() {
         <Route path="/aws-project" element={<AwsProjectPage />} />
         <Route path="/filme" element={<FilmeProjectPage />} />
         <Route path="/control-admin" element={<ControlAdminProjectPage />} />
+        {/* Ruta oculta: no se enlaza desde ninguna parte, se comparte a mano. */}
+        <Route path="/freelance" element={<FreelancePage />} />
       </Routes>
 
       <Footer />

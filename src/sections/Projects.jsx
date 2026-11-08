@@ -105,7 +105,7 @@ function ProjectMockup({ project, a }) {
   )
 }
 
-function ProjectCard({ project, detailed }) {
+export function ProjectCard({ project, detailed }) {
   const t = useT(copy)
   const a = accentStyles[project.accent] || accentStyles.brand
   const { links } = project
@@ -174,6 +174,13 @@ function ProjectCard({ project, detailed }) {
               {t.website}
               <ArrowUpRight className="h-4 w-4" />
             </SmartLink>
+          )}
+          {/* Web aún no desplegada: el botón se muestra pero no hace nada. */}
+          {!links.website && links.websitePending && (
+            <button type="button" className="btn btn-primary btn-sm">
+              {t.website}
+              <ArrowUpRight className="h-4 w-4" />
+            </button>
           )}
           {links.repo && (
             <SmartLink href={links.repo} className="btn btn-ghost btn-sm">

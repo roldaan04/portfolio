@@ -17,12 +17,38 @@ El objetivo de esta web es servir como carta de presentación profesional, permi
 - Tecnologías utilizadas
 - Proyectos completos
 - Enlaces a GitHub, LinkedIn y CV
+- Chat de IA con contexto
 
 ## Tecnologías utilizadas
 
 Este portfolio está desarrollado con:
 
 - React
+
+## Chat IA
+
+El portfolio incluye un asistente con inteligencia artificial, accesible desde un botón flotante, que responde preguntas sobre mi perfil, experiencia, proyectos y disponibilidad, en español e inglés.
+
+### Cómo está hecho
+
+- **Frontend:** componente propio en React con Tailwind CSS, con preguntas frecuentes predefinidas, respuestas en streaming y enlaces a las secciones del portfolio.
+- **Backend:** función serverless en Vercel (`/api/chat`).
+- **Conocimiento:** la IA responde a partir del contenido de la web y de información adicional sobre mi perfil.
+
+### Modelos de IA
+
+Se conecta a **dos servicios externos de LLM en sus planes gratuitos**:
+
+Si un modelo falla o agota su cuota, el chat pasa automáticamente al siguiente. Si ninguno está disponible, ofrece las vías de contacto.
+
+### Límites y seguridad
+
+- Límite de preguntas por visitante, con bloqueo temporal al agotarlas, y un máximo diario global (gestionados con Upstash Redis).
+- Longitud máxima por pregunta y tiempo de espera entre mensajes.
+- Las claves de las APIs solo existen en el servidor.
+- Validación del origen y del contenido de las peticiones.
+- La IA solo puede mostrar enlaces de una lista autorizada.
+- No se guardan las conversaciones en el servidor y las direcciones IP se anonimizan.
 
 
 ## Autor

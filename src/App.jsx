@@ -10,14 +10,46 @@ import AwsProjectPage from './pages/AwsProjectPage'
 import FilmeProjectPage from './pages/FilmeProjectPage'
 import ControlAdminProjectPage from './pages/ControlAdminProjectPage'
 import FreelancePage from './pages/FreelancePage'
+import ChatLauncher from './components/chat/ChatLauncher'
 
-/* Al navegar entre rutas, vuelve arriba (salvo si hay un #ancla). */
+/* Al navegar entre rutas, vuelve arriba. Si hay un #ancla (p. ej. los enlaces
+   del chat a /proyectos#kristalia), baja hasta ese elemento y lo resalta. */
 function ScrollToTop() {
-  const { pathname, hash } = useLocation()
+  const { pathname, hash, key } = useLocation()
+
   useEffect(() => {
     if (hash) return
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
   }, [pathname, hash])
+
+  useEffect(() => {
+    if (!hash) return
+    const id = decodeURIComponent(hash.slice(1))
+    let tries = 0
+    let frame
+    let timer
+    const go = () => {
+      const el = document.getElementById(id)
+      if (!el) {
+        if (tries++ < 30) frame = requestAnimationFrame(go)
+        return
+      }
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      // Solo se resaltan tarjetas (artículos), no secciones enteras.
+      if (el.tagName === 'ARTICLE') {
+        el.classList.remove('is-target-highlight')
+        void el.offsetWidth // reinicia la animación si ya estaba
+        el.classList.add('is-target-highlight')
+        timer = setTimeout(() => el.classList.remove('is-target-highlight'), 2400)
+      }
+    }
+    frame = requestAnimationFrame(go)
+    return () => {
+      cancelAnimationFrame(frame)
+      clearTimeout(timer)
+    }
+  }, [pathname, hash, key])
+
   return null
 }
 
@@ -40,6 +72,7 @@ function App() {
       </Routes>
 
       <Footer />
+      <ChatLauncher />
     </div>
   )
 }

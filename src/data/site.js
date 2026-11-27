@@ -15,7 +15,12 @@
    - projects[].repo / .demo / .details → enlaces reales de cada proyecto
    ============================================================ */
 
-import { useLanguage } from "../i18n/context"
+// Con extensión .js: este archivo también lo importa la función del chat (Node).
+import { useLanguage } from "../i18n/context.js"
+import { CONTACT } from "./chatLinks.js"
+
+const EMAIL_MD = `[${CONTACT.email}](mailto:${CONTACT.email})`
+const PHONE_MD = `[${CONTACT.phone}](${CONTACT.phoneHref})`
 
 // 🔧 Placeholders centralizados — cámbialos por los reales.
 const sharedLinks = {
@@ -296,7 +301,7 @@ const es = {
       ],
     },
     {
-      title: "Máster · IA y Big Data",
+      title: "Curso de especialización · IA y Big Data",
       role: "Valor diferencial",
       description:
         "Procesamiento de datos, cloud, machine learning, pipelines y tecnologías Big Data.",
@@ -400,6 +405,68 @@ const es = {
       { label: "Disponibilidad", value: esProfile.availability },
       { label: "Puesto", value: esProfile.roleTarget },
       { label: "Modalidad", value: esProfile.modality },
+    ],
+  },
+
+  /* Chat IA (botón flotante). Las preguntas fijas se responden con estos
+     textos tal cual, sin pasar por la IA. Admiten **negrita**, listas con "- "
+     y enlaces [texto](url) de la lista blanca de src/data/chatLinks.js. */
+  chat: {
+    open: "Abrir el asistente IA",
+    teaserEyebrow: "Asistente IA",
+    teaser: "👋 ¿Tienes preguntas sobre Javier? Pregúntame lo que quieras sobre su experiencia y proyectos.",
+    title: "Asistente de Javier",
+    subtitle: "IA · Responde sobre su perfil",
+    welcome:
+      "¡Hola! 👋 Soy el asistente virtual de Javier. Puedo contarte sobre su experiencia, proyectos, formación y disponibilidad. Elige una pregunta o escribe la tuya.",
+    placeholder: "Escribe tu pregunta…",
+    send: "Enviar",
+    close: "Cerrar chat",
+    reset: "Nueva conversación",
+    moreQuestions: "También puedes preguntar",
+    disclaimer: "Respuestas generadas por IA, pueden contener errores. No incluyas datos personales.",
+    remaining: "Te quedan {n} preguntas",
+    remainingOne: "Te queda 1 pregunta",
+    tooLong: "Tu mensaje supera el límite de {max} caracteres. Redúcelo o habla directamente con Javier:",
+    blockedUntil: "Podrás volver a preguntar a partir del {date}.",
+    errors: {
+      user_limit: "Has alcanzado el límite de preguntas 🙂 Si quieres saber más, contacta directamente con Javier:",
+      global_limit: "El asistente ha alcanzado su límite de hoy. Puedes contactar directamente con Javier:",
+      unavailable: "El asistente no está disponible ahora mismo. Puedes contactar directamente con Javier:",
+      too_fast: "Vas un poco rápido 🙂 Espera unos segundos y vuelve a intentarlo.",
+      bad_request: "No he podido procesar tu mensaje. Prueba a reformularlo.",
+      too_long: "Tu mensaje es demasiado largo. Redúcelo o habla directamente con Javier:",
+      network: "No he podido conectar. Revisa tu conexión e inténtalo de nuevo.",
+    },
+    contact: { email: "Email", phone: "Teléfono", linkedin: "LinkedIn", cv: "Descargar CV" },
+    quickQuestions: [
+      {
+        id: "actualidad",
+        question: "¿Qué está haciendo Javier actualmente?",
+        answer:
+          "Actualmente, Javier se encuentra en búsqueda activa de empleo como desarrollador Full Stack o en puestos relacionados con la Inteligencia Artificial. Mientras tanto, continúa ampliando su experiencia mediante el desarrollo de proyectos personales y otros, como páginas web para clientes (como [Kristalia](/proyectos#kristalia)). Puedes conocer mejor su trabajo, sus habilidades y los proyectos que desarrolla visitando el [portfolio](/proyectos) y su perfil de [GitHub](https://github.com/roldaan04).",
+      },
+      {
+        id: "experiencia",
+        question: "¿Qué experiencia profesional tiene Javier?",
+        answer:
+          "Javier cuenta con un año de experiencia profesional como desarrollador Full Stack en Visioluxe, donde participó en el desarrollo de dos aplicaciones completas utilizando Angular, Node.js y MongoDB, trabajando tanto en el frontend como en el backend y desarrollando APIs REST. Puedes conocer más detalles sobre las aplicaciones desarrolladas en el apartado de [Experiencia](/experiencia) de su portfolio.\n\nAunque su experiencia profesional se ha centrado principalmente en estas tecnologías, Javier también cuenta con experiencia práctica en otros lenguajes y frameworks, como Python, React, Java, Spring Boot y FastAPI, adquirida mediante su formación y el desarrollo de proyectos personales.",
+      },
+      {
+        id: "contacto",
+        question: "¿Cómo puedo contactar con Javier?",
+        answer: `Puedes contactar con Javier como prefieras:\n- **Email:** ${EMAIL_MD}\n- **Teléfono:** ${PHONE_MD}\n\nEstará encantado de hablar contigo sobre oportunidades profesionales, procesos de selección o proyectos.`,
+      },
+      {
+        id: "disponibilidad",
+        question: "¿Cuál es su disponibilidad?",
+        answer: `Javier tiene **disponibilidad inmediata** para incorporarse. Está abierto a trabajar en modalidad presencial, híbrida o remota, y se encuentra en Madrid. Si quieres hablar con él, puedes contactarle por email (${EMAIL_MD}) o por teléfono (${PHONE_MD}).`,
+      },
+      {
+        id: "freelance",
+        question: "¿Hace proyectos freelance?",
+        answer: `¡Por supuesto! Javier está abierto a colaborar en proyectos freelance y cuenta con experiencia trabajando con clientes externos, como [Kristalia](/proyectos#kristalia), una empresa de limpieza de cristales que confió en él para desarrollar su página web corporativa, obteniendo excelentes resultados.\n\nEntre los servicios que puede ofrecer se encuentran:\n- **Desarrollo web:** creación de páginas web completas, modernas, adaptadas a dispositivos móviles y orientadas a captar clientes, con su SEO correspondiente.\n- **Desarrollo de aplicaciones:** soluciones de software personalizadas según las necesidades de cada empresa.\n- **Automatización de procesos:** optimización de tareas repetitivas para ahorrar tiempo y mejorar la productividad.\n- **Inteligencia Artificial:** implementación de soluciones de IA adaptadas a las necesidades del negocio.\n- **Asesoramiento tecnológico:** análisis de las necesidades de tu empresa para identificar oportunidades de mejora y plantear soluciones digitales.\n\nSi tienes un proyecto en mente o simplemente quieres descubrir cómo la tecnología puede mejorar tu negocio, puedes ponerte en contacto con Javier, compartir tus ideas y estudiar juntos la mejor solución para tu empresa.\n- **Email:** ${EMAIL_MD}\n- **Teléfono:** ${PHONE_MD}`,
+      },
     ],
   },
 };
@@ -668,7 +735,7 @@ const en = {
       ],
     },
     {
-      title: "Master's · AI and Big Data",
+      title: "Specialisation course · AI and Big Data",
       role: "Differentiating value",
       description:
         "Data processing, cloud, machine learning, pipelines and Big Data technologies.",
@@ -769,6 +836,65 @@ const en = {
       { label: "Availability", value: enProfile.availability },
       { label: "Position", value: enProfile.roleTarget },
       { label: "Work mode", value: enProfile.modality },
+    ],
+  },
+
+  chat: {
+    open: "Open the AI assistant",
+    teaserEyebrow: "AI assistant",
+    teaser: "👋 Got questions about Javier? Ask me anything about his experience and projects.",
+    title: "Javier's assistant",
+    subtitle: "AI · Answers about his profile",
+    welcome:
+      "Hi! 👋 I'm Javier's virtual assistant. I can tell you about his experience, projects, education and availability. Pick a question or type your own.",
+    placeholder: "Type your question…",
+    send: "Send",
+    close: "Close chat",
+    reset: "New conversation",
+    moreQuestions: "You can also ask",
+    disclaimer: "AI-generated answers may contain mistakes. Please don't share personal data.",
+    remaining: "{n} questions left",
+    remainingOne: "1 question left",
+    tooLong: "Your message is over the {max} character limit. Shorten it or talk to Javier directly:",
+    blockedUntil: "You'll be able to ask again from {date}.",
+    errors: {
+      user_limit: "You've reached the question limit 🙂 If you'd like to know more, contact Javier directly:",
+      global_limit: "The assistant has reached its limit for today. You can contact Javier directly:",
+      unavailable: "The assistant isn't available right now. You can contact Javier directly:",
+      too_fast: "You're going a bit fast 🙂 Wait a few seconds and try again.",
+      bad_request: "I couldn't process your message. Try rephrasing it.",
+      too_long: "Your message is too long. Shorten it or talk to Javier directly:",
+      network: "I couldn't connect. Check your connection and try again.",
+    },
+    contact: { email: "Email", phone: "Phone", linkedin: "LinkedIn", cv: "Download CV" },
+    quickQuestions: [
+      {
+        id: "actualidad",
+        question: "What is Javier doing right now?",
+        answer:
+          "Javier is currently actively looking for a job as a Full Stack developer or in roles related to Artificial Intelligence. In the meantime, he keeps growing his experience by building personal projects and other work, such as websites for clients (like [Kristalia](/proyectos#kristalia)). You can learn more about his work, skills and projects by exploring the [portfolio](/proyectos) and his [GitHub](https://github.com/roldaan04) profile.",
+      },
+      {
+        id: "experiencia",
+        question: "What professional experience does Javier have?",
+        answer:
+          "Javier has one year of professional experience as a Full Stack developer at Visioluxe, where he worked on two complete applications built with Angular, Node.js and MongoDB, covering both frontend and backend and developing REST APIs. You can find more details about these applications in the [Experience](/experiencia) section of his portfolio.\n\nAlthough his professional experience has focused mainly on these technologies, Javier also has hands-on experience with other languages and frameworks, such as Python, React, Java, Spring Boot and FastAPI, gained through his studies and personal projects.",
+      },
+      {
+        id: "contacto",
+        question: "How can I contact Javier?",
+        answer: `You can contact Javier however you prefer:\n- **Email:** ${EMAIL_MD}\n- **Phone:** ${PHONE_MD}\n\nHe'll be happy to talk with you about job opportunities, hiring processes or projects.`,
+      },
+      {
+        id: "disponibilidad",
+        question: "When is he available?",
+        answer: `Javier is **available immediately**. He's open to on-site, hybrid or remote work and is based in Madrid. If you'd like to talk with him, you can reach him by email (${EMAIL_MD}) or by phone (${PHONE_MD}).`,
+      },
+      {
+        id: "freelance",
+        question: "Does he take on freelance projects?",
+        answer: `Absolutely! Javier is open to freelance collaborations and has experience working with external clients, such as [Kristalia](/proyectos#kristalia), a window cleaning company that trusted him to build its corporate website, with excellent results.\n\nThe services he can offer include:\n- **Web development:** complete, modern, mobile-friendly websites designed to win customers, with proper SEO.\n- **Application development:** custom software tailored to each company's needs.\n- **Process automation:** streamlining repetitive tasks to save time and boost productivity.\n- **Artificial Intelligence:** AI solutions adapted to your business needs.\n- **Technology consulting:** analysing your company's needs to spot opportunities for improvement and propose digital solutions.\n\nIf you have a project in mind or simply want to find out how technology can improve your business, get in touch with Javier, share your ideas and work out the best solution together.\n- **Email:** ${EMAIL_MD}\n- **Phone:** ${PHONE_MD}`,
+      },
     ],
   },
 };

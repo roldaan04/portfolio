@@ -111,7 +111,7 @@ export function ProjectCard({ project, detailed }) {
   const { links } = project
 
   return (
-    <article className="glass glass-hover flex h-full flex-col p-5 sm:p-6">
+    <article id={project.id} className="glass glass-hover flex h-full flex-col p-5 sm:p-6">
       <ProjectMockup project={project} a={a} />
 
       <div className="mt-6 flex flex-1 flex-col">

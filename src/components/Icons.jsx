@@ -193,3 +193,45 @@ export function Target({ className = "h-5 w-5" }) {
     </svg>
   )
 }
+
+/* --- Chat IA --- */
+export function ChatBubble({ className = "h-5 w-5" }) {
+  return (
+    <svg className={className} {...base}>
+      <path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.6A8 8 0 1 1 21 12Z" />
+      <path d="M8.5 12h.01M12 12h.01M15.5 12h.01" strokeWidth={2.4} />
+    </svg>
+  )
+}
+
+export function Close({ className = "h-5 w-5" }) {
+  return (
+    <svg className={className} {...base}>
+      <path d="M6 6l12 12M18 6 6 18" />
+    </svg>
+  )
+}
+
+export function Send({ className = "h-5 w-5" }) {
+  return (
+    <svg className={className} {...base}>
+      <path d="M5 12 3.5 4.5 21 12 3.5 19.5 5 12Zm0 0h7" />
+    </svg>
+  )
+}
+
+export function Phone({ className = "h-5 w-5" }) {
+  return (
+    <svg className={className} {...base}>
+      <path d="M5 4h3l1.5 4-2 1.5a11 11 0 0 0 7 7l1.5-2 4 1.5v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" />
+    </svg>
+  )
+}
+
+export function Refresh({ className = "h-5 w-5" }) {
+  return (
+    <svg className={className} {...base}>
+      <path d="M20 11a8 8 0 0 0-14.3-4.9L4 8M4 4v4h4M4 13a8 8 0 0 0 14.3 4.9L20 16m0 4v-4h-4" />
+    </svg>
+  )
+}
